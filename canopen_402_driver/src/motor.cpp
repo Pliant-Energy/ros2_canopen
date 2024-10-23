@@ -399,6 +399,11 @@ bool Motor402::handleInit()
     std::cout << "Homing failed" << std::endl;
     return false;
   }
+  
+  std::stringstream oss;
+  oss << "DZ! Init: successful homing with homing mode " << (uint32_t) homing->last_homing_mode_;
+  RCLCPP_INFO_STREAM(rclcpp::get_logger("canopen_402_driver"), oss.str());
+  
   RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "Init: Switch no mode");
   if (!switchMode(MotorBase::No_Mode))
   {

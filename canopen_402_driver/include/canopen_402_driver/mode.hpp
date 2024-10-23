@@ -41,6 +41,7 @@ public:
   virtual bool write(OpModeAccesser & cw) = 0;
   virtual bool setTarget(const double & val) { return false; }
   virtual ~Mode() {}
+  int8_t last_homing_mode_ = 0;
 };
 typedef std::shared_ptr<Mode> ModeSharedPtr;
 }  // namespace ros2_canopen
