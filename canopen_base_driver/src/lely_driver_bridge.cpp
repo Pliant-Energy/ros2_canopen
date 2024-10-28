@@ -160,6 +160,12 @@ void LelyDriverBridge::OnRpdoWrite(uint16_t idx, uint8_t subidx) noexcept
     sub->setVal<CO_DEFTYPE_INTEGER32>((int32_t)rpdo_mapped[idx][subidx]);
     std::memcpy(&data, &sub->getVal<CO_DEFTYPE_INTEGER32>(), 4);
   }
+  if (co_def == CO_DEFTYPE_REAL32)
+  {
+    std::scoped_lock<std::mutex> lck(this->dictionary_mutex_);
+    sub->setVal<CO_DEFTYPE_REAL32>((float_t)rpdo_mapped[idx][subidx]);
+    std::memcpy(&data, &sub->getVal<CO_DEFTYPE_REAL32>(), 4);
+  }
   COData codata = {idx, subidx, data};
 
   //  We do not care so much about missing a message, rather push them through.
