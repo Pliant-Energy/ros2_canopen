@@ -57,7 +57,6 @@ protected:
   double scale_pos_from_dev_;
   double scale_vel_to_dev_;
   double scale_vel_from_dev_;
-
   double offset_pos_to_dev_;
   double offset_pos_from_dev_;
   double scale_eff_from_dev_;
