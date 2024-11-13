@@ -71,7 +71,7 @@ def generate_launch_description():
         package="canopen_core",
         output="screen",
         executable="device_container_node",
-        prefix=["xterm -fa 'Monospace' -fs 14 -e gdb -ex run --args"], # gdb debugging, see https://docs.nav2.org/tutorials/docs/get_backtrace.html#from-a-launch-file, need to ssh with -X
+        #prefix=["xterm -fa 'Monospace' -fs 14 -e gdb -ex run --args"], # gdb debugging, see https://docs.nav2.org/tutorials/docs/get_backtrace.html#from-a-launch-file, need to ssh with -X
         parameters=[
             {"bus_config": LaunchConfiguration("bus_config")},
             {"master_config": LaunchConfiguration("master_config")},
