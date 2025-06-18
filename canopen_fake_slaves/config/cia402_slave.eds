@@ -41,7 +41,7 @@ SupportedObjects=3
 SupportedObjects=0
 
 [OptionalObjects]
-SupportedObjects=67
+SupportedObjects=68
 1=0x1005
 2=0x1008
 3=0x1009
@@ -89,26 +89,27 @@ SupportedObjects=67
 45=0x6068
 46=0x606A
 47=0x606C
-48=0x607A
-49=0x607C
-50=0x607D
-51=0x6081
-52=0x6082
-53=0x6083
-54=0x6084
-55=0x6085
-56=0x608F
-57=0x6098
-58=0x6099
-59=0x609A
-60=0x60B0
-61=0x60B1
-62=0x60C2
-63=0x60F2
-64=0x60FD
-65=0x60FF
-66=0x6502
-67=0x67FF
+48=0x6077
+49=0x607A
+50=0x607C
+51=0x607D
+52=0x6081
+53=0x6082
+54=0x6083
+55=0x6084
+56=0x6085
+57=0x608F
+58=0x6098
+59=0x6099
+60=0x609A
+61=0x60B0
+62=0x60B1
+63=0x60C2
+64=0x60F2
+65=0x60FD
+66=0x60FF
+67=0x6502
+68=0x67FF
 
 [1000]
 ParameterName=Device Type
@@ -376,7 +377,7 @@ ParameterName=Product Code
 ObjectType=0x07
 DataType=0x0007
 AccessType=ro
-DefaultValue=0x1
+DefaultValue=0x0
 PDOMapping=0
 
 [1018sub3]
@@ -392,7 +393,6 @@ ParameterName=Serial number
 ObjectType=0x07
 DataType=0x0007
 AccessType=ro
-DefaultValue=0x0
 PDOMapping=0
 
 [1023]
@@ -477,7 +477,7 @@ ParameterName=COB-ID
 ObjectType=0x07
 DataType=0x0007
 AccessType=rw
-DefaultValue=$NODEID+0x40000200
+DefaultValue=$NODEID+0x80000200
 PDOMapping=0
 
 [1400sub2]
@@ -506,7 +506,7 @@ ParameterName=COB-ID
 ObjectType=0x07
 DataType=0x0007
 AccessType=rw
-DefaultValue=$NODEID+0x40000300
+DefaultValue=$NODEID+0x80000300
 PDOMapping=0
 
 [1401sub2]
@@ -535,7 +535,7 @@ ParameterName=COB-ID
 ObjectType=0x07
 DataType=0x0007
 AccessType=rw
-DefaultValue=$NODEID+0x40000400
+DefaultValue=$NODEID+0x80000400
 PDOMapping=0
 
 [1402sub2]
@@ -564,7 +564,7 @@ ParameterName=COB-ID
 ObjectType=0x07
 DataType=0x0007
 AccessType=rw
-DefaultValue=$NODEID+0xC0000500
+DefaultValue=$NODEID+0x80000500
 PDOMapping=0
 
 [1403sub2]
@@ -741,7 +741,7 @@ ParameterName=COB-ID
 ObjectType=0x07
 DataType=0x0007
 AccessType=rw
-DefaultValue=$NODEID+0x40000180
+DefaultValue=$NODEID+0x80000180
 PDOMapping=0
 
 [1800sub2]
@@ -793,7 +793,7 @@ ParameterName=COB-ID
 ObjectType=0x07
 DataType=0x0007
 AccessType=rw
-DefaultValue=$NODEID+0x40000280
+DefaultValue=$NODEID+0x80000280
 PDOMapping=0
 
 [1801sub2]
@@ -845,7 +845,7 @@ ParameterName=COB-ID
 ObjectType=0x07
 DataType=0x0007
 AccessType=rw
-DefaultValue=$NODEID+0x40000380
+DefaultValue=$NODEID+0x80000380
 PDOMapping=0
 
 [1802sub2]
@@ -897,7 +897,7 @@ ParameterName=COB-ID
 ObjectType=0x07
 DataType=0x0007
 AccessType=rw
-DefaultValue=$NODEID+0xC0000480
+DefaultValue=$NODEID+0x80000480
 PDOMapping=0
 
 [1803sub2]
@@ -1206,6 +1206,13 @@ DataType=0x0004
 AccessType=ro
 PDOMapping=1
 
+[6077]
+ParameterName=Torque Actual Value 1
+ObjectType=0x07
+DataType=0x0003
+AccessType=ro
+PDOMapping=1
+
 [607A]
 ParameterName=Target Position 1
 ObjectType=0x07
@@ -1440,3 +1447,4 @@ DataType=0x0007
 AccessType=ro
 DefaultValue=0x00040192
 PDOMapping=0
+

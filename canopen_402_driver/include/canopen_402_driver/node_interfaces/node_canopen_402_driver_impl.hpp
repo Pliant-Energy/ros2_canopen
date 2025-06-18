@@ -406,7 +406,7 @@ void NodeCanopen402Driver<rclcpp::Node>::configure(bool called_from_base)
     "%f\nhoming_timeout_seconds_ %i\n",
     scale_pos_to_dev_, scale_pos_from_dev_, scale_vel_to_dev_, scale_vel_from_dev_,
     scale_eff_from_dev_,
-    offset_pos_to_dev_, offset_pos_from_dev_, homing_timeout_seconds_,
+    offset_pos_to_dev_, offset_pos_from_dev_, homing_timeout_seconds_
     );
 }
 
