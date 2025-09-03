@@ -387,7 +387,7 @@ bool Motor402::handleInit()
     std::cout << "Homing mode has incorrect handler" << std::endl;
     return false;
   }
-  RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "Init: Skip homing routine on dz/jazzy-custom!");
+  RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "Init: Skip homing routine on dz/wip-mcm-ros2-issue-85!");
   // RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "Init: Switch to homing");
   // if (!switchMode(MotorBase::Homing))
   // {
