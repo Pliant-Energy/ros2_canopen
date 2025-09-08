@@ -437,7 +437,7 @@ template <class NODETYPE>
 void NodeCanopen402Driver<NODETYPE>::publish()
 {
   sensor_msgs::msg::JointState js_msg;
-  js_msg.header.frame_id = "camshaft";
+  js_msg.header.frame_id = "housing";
   js_msg.name.push_back(this->node_->get_name());
   js_msg.position.push_back(motor_->get_position() * scale_pos_from_dev_ + offset_pos_from_dev_);
   js_msg.velocity.push_back(motor_->get_speed() * scale_vel_from_dev_);
