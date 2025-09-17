@@ -222,6 +222,7 @@ void NodeCanopen402Driver<rclcpp_lifecycle::LifecycleNode>::configure(bool calle
   std::optional<double> offset_pos_to_dev;
   std::optional<double> offset_pos_from_dev;
   std::optional<double> scale_eff_from_dev;
+
   std::optional<int> switching_state;
   std::optional<int> homing_timeout_seconds;
   try
@@ -396,6 +397,7 @@ void NodeCanopen402Driver<rclcpp::Node>::configure(bool called_from_base)
   offset_pos_to_dev_ = offset_pos_to_dev.value_or(0.0);
   offset_pos_from_dev_ = offset_pos_from_dev.value_or(0.0);
   scale_eff_from_dev_ = scale_eff_from_dev.value_or(0.001);
+  
   switching_state_ = (ros2_canopen::State402::InternalState)switching_state.value_or(
     (int)ros2_canopen::State402::InternalState::Operation_Enable);
   homing_timeout_seconds_ = homing_timeout_seconds.value_or(10);
