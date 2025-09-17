@@ -387,7 +387,7 @@ bool Motor402::handleInit()
     std::cout << "Homing mode has incorrect handler" << std::endl;
     return false;
   }
-  RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "Init: Skip homing routine on dz/jazzy-custom!");
+  RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "Init: Skip homing routine for Pliant custom fork!");
   // RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "Init: Switch to homing");
   // if (!switchMode(MotorBase::Homing))
   // {
@@ -450,6 +450,39 @@ bool Motor402::handleRecover()
   if (!switchState(State402::Operation_Enable))
   {
     std::cout << "Could not enable motor" << std::endl;
+    return false;
+  }
+  return true;
+}
+bool Motor402::handleEnable()
+{
+  RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "Enable: Read State");
+  if (!readState())
+  {
+    std::cout << "Could not read motor state" << std::endl;
+    return false;
+  }
+  RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "Enable");
+  if (!switchState(State402::Operation_Enable))
+  {
+    std::cout << "Could not enable motor" << std::endl;
+    return false;
+  }
+  return true;
+}
+
+bool Motor402::handleDisable()
+{
+  RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "Disable: Read State");
+  if (!readState())
+  {
+    std::cout << "Could not read motor state" << std::endl;
+    return false;
+  }
+  RCLCPP_INFO(rclcpp::get_logger("canopen_402_driver"), "Disable");
+  if (!switchState(State402::Switched_On))
+  {
+    std::cout << "Could not disable motor" << std::endl;
     return false;
   }
   return true;
