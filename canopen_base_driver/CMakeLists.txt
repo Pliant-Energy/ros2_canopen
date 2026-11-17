@@ -122,9 +122,18 @@ install(
   DESTINATION include
 )
 
+# Implementation libraries: exported for linking
 install(
-  TARGETS lifecycle_base_driver base_driver node_canopen_base_driver lely_driver_bridge
+  TARGETS node_canopen_base_driver lely_driver_bridge
   EXPORT export_${PROJECT_NAME}
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
+)
+
+# ROS 2 component libraries: installed for dynamic loading
+install(
+  TARGETS lifecycle_base_driver base_driver
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
@@ -139,8 +148,6 @@ ament_export_include_directories(
   include
 )
 ament_export_libraries(
-  lifecycle_base_driver
-  base_driver
   node_canopen_base_driver
   lely_driver_bridge
 )
