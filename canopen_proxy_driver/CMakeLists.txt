@@ -101,8 +101,15 @@ install(
 )
 
 install(
-  TARGETS lifecycle_proxy_driver proxy_driver node_canopen_proxy_driver
+  TARGETS node_canopen_proxy_driver
   EXPORT export_${PROJECT_NAME}
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
+)
+
+install(
+  TARGETS lifecycle_proxy_driver proxy_driver
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
@@ -117,8 +124,6 @@ ament_export_include_directories(
   include
 )
 ament_export_libraries(
-  lifecycle_proxy_driver
-  proxy_driver
   node_canopen_proxy_driver
 )
 ament_export_targets(

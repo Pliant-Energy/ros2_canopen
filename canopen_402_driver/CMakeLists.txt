@@ -123,8 +123,15 @@ install(
 )
 
 install(
-  TARGETS lifecycle_cia402_driver cia402_driver node_canopen_cia402_driver lely_motion_controller_bridge
+  TARGETS node_canopen_cia402_driver lely_motion_controller_bridge
   EXPORT export_${PROJECT_NAME}
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
+)
+
+install(
+  TARGETS lifecycle_cia402_driver cia402_driver
   ARCHIVE DESTINATION lib
   LIBRARY DESTINATION lib
   RUNTIME DESTINATION bin
@@ -139,11 +146,10 @@ ament_export_include_directories(
   include
 )
 ament_export_libraries(
-  lifecycle_cia402_driver
-  cia402_driver
   node_canopen_cia402_driver
   lely_motion_controller_bridge
 )
+
 ament_export_targets(
   export_${PROJECT_NAME}
 )

@@ -39,8 +39,19 @@ target_compile_features(canopen_ros2_control PUBLIC c_std_99 cxx_std_17)  # Requ
 target_compile_options(canopen_ros2_control PUBLIC -fPIC -Wl,--no-undefined)
 
 target_include_directories(canopen_ros2_control PUBLIC include)
-ament_target_dependencies(canopen_ros2_control ${THIS_PACKAGE_INCLUDE_DEPENDS})
-
+ament_target_dependencies(
+  canopen_ros2_control
+  hardware_interface
+  pluginlib
+  rclcpp
+  rclcpp_components
+  rclcpp_lifecycle
+)
+target_link_libraries(canopen_ros2_control
+  canopen_402_driver::node_canopen_cia402_driver
+  canopen_402_driver::lely_motion_controller_bridge
+  canopen_proxy_driver::node_canopen_proxy_driver
+)
 # prevent pluginlib from using boost
 target_compile_definitions(canopen_ros2_control PUBLIC "PLUGINLIB__DISABLE_BOOST_FUNCTIONS")
 
